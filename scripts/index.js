@@ -1,41 +1,48 @@
-//-getters
-var input1 = document.getElementById("input1"); 
-var input2 = document.getElementById("input2"); 
-var result = document.getElementById("result");
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-var button5 = document.getElementById("button5");
+//-globals
+let input1 = document.getElementById("input1"); 
+let input2 = document.getElementById("input2"); 
+let result = document.getElementById("result");
+let spyArray = [];
 
-
-//-functions 
-function add(){
-    var num1= parseInt(input1.value);
-    var num2= parseInt(input2.value);
-    result.innerHTML= num1 + num2
+//-gets input from index.html input
+function getInput(){
+    let num1 = parseInt(input1.value);
+    spy(num1);
+    let num2 = parseInt(input2.value);
+    spy(num2); 
+    let array = [num1, num2];
+    return array;
 }
 
-function sub(){
-    var num3= parseInt(input1.value);
-    var num4= parseInt(input2.value);
-    result.innerHTML= num3 - num4
+//-operator: string 
+//-calculates input, gets correct operator from onclickhtml
+function calculate(operator){
+    let array = getInput();
+    console.log("secretArray ", spyArray);
+    switch (operator){
+        case "+":
+            result.innerHTML = array[0] + array[1] ;
+            break;
+        case "-":
+            result.innerHTML = array[0] - array[1];
+            break;
+        case "*":
+            result.innerHTML = array[0] * array[1];
+            break;
+        case "/":
+            result.innerHTML = array[0] / array[1];
+            break;
+        case "%":
+            result.innerHTML = array[0] % array[1];
+            break;
+        case "^":
+            result.innerHTML = Math.pow(array[0] , array[1]);
+            break;
+    }
 }
 
-function multiply(){
-    var num5= parseInt(input1.value);
-    var num6= parseInt(input2.value);
-    result.innerHTML= num5 * num6
+//-tracks used numbers
+function spy(num){
+    spyArray.push(num);
 }
 
-function divide(){
-    var num5= parseInt(input1.value);
-    var num6= parseInt(input2.value);
-    result.innerHTML= num5 / num6
-}
-
-function modulo(){
-    var num7= parseInt(input1.value);
-    var num8= parseInt(input2.value);
-    result.innerHTML= num7 % num8
-}

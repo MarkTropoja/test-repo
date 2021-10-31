@@ -12,19 +12,46 @@ h1:hover {
 
 
 
-img{
+#baller-img{
     border-width: 20px;
     border-color: #237CE2;
     border-style: solid;
     border-radius: 30px;
-    margin-bottom: 150px;
+    margin-bottom: 70px;
 }  
 
-img:hover{
+#baller-img:hover{
     border-width: 20px;
     border-color: #d4a040;
     border-style: solid;
     border-radius: 30px;
+}
+
+#cases-box{
+    margin-top: 65px;
+}
+
+#case-img{
+   width: 15%;
+}
+
+#case-click{
+    cursor:pointer;
+}
+
+.cases-text{
+    color: #F9ED6A;
+    background-color: rgba(0, 0, 0, 0.185);
+    font-weight: bold;
+}
+
+#cases-text-big{
+    font-size: 1.5em;
+}
+
+#cases-box:hover .cases-text{
+    color: #DCD51F;
+    background-color: black;
 }
 
 #twitter-icon:hover{

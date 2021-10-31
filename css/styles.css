@@ -33,10 +33,11 @@ h1:hover {
 
 #case-img{
    width: 15%;
+    
 }
 
 #case-click{
-    cursor:pointer;
+    cursor:pointer;  
 }
 
 .cases-text{
@@ -79,4 +80,16 @@ h1:hover {
 #button-box{
     font-size: 1.5em;
     margin-top: 10px;
+}
+
+
+@keyframes fadeout {
+    0% {opacity: 1};
+    100% {opacity: 0};
+}
+
+.fadeout{
+    animation-name: fadeout;
+    animation-duration: 3s;
+    opacity: 0;  
 }

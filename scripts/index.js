@@ -13,7 +13,13 @@ let casesTextSmall = document.getElementById("cases-text-small");
 let dropSound = new Audio("./assets/audio/drop.mp3");
 let eliteSound = new Audio("./assets/audio/elite.mp3");
 let enlistedSound = new Audio("./assets/audio/enlisted.mp3");
-
+let playerInput = document.getElementById("inputplayer");
+let addButton = document.getElementById("bottlebutton");
+let listPlayer = document.getElementById("player-list");
+let playerArray = [];
+let spinButton = document.getElementById("spinbutton");
+let loserDisplay = document.getElementById("loser-display");
+let shouldPush = true;
 
 
 //-gets input from index.html input
@@ -114,3 +120,74 @@ function caseOpening(){
 
 }
 
+
+//-bottlespin
+
+//-loop to check Duplicates
+function myFirstLoop(player)
+{
+    console.log("checking for " + player);
+    for (let i = 0; i < playerArray.length; i++)
+    {
+       if (playerArray[i] === player)
+       {
+        console.log(player + " is in " + JSON.stringify(playerArray));
+        shouldPush = false;
+        break;
+       }
+        
+       else {shouldPush = true;}
+    }
+}
+
+//-gets PlayerName into List
+function player(){
+    let player =  playerInput.value;
+    playerInput.value = "";
+    console.log('playerArraybefore ', playerArray);
+
+    myFirstLoop(player);
+
+    if (player === '' || !shouldPush)
+    {
+        addButton.style.color = "#FF0000";
+        setTimeout(() => {
+          addButton.style.color = "unset";  
+        }, 1000)
+        
+        return;
+    }
+
+    playerArray.push(player);
+    console.log('playerArrayafter ', playerArray);
+    listPlayer.innerHTML = playerArray;
+}
+
+//-gets Loser after clicking Spin
+function spin(){
+
+    if (playerArray.length === 0 || playerArray.length === 1)
+    {
+        spinButton.style.color = "#FF0000";
+        setTimeout(() => {
+            spinButton.style.color = "unset";
+        }, 1000)
+
+        return;
+    }
+
+    else
+    {
+        let randomNumber = Math.random();
+        console.log('randomnumber ' + randomNumber);
+        let loserIndex = Math.floor(playerArray.length * Math.random());
+        console.log('loserindex ' + loserIndex);
+        let loser = playerArray[loserIndex];
+        console.log('loser ' + playerArray[loserIndex]);
+        loserDisplay.innerHTML = loser;
+
+        playerArray.length = 0;
+        listPlayer.innerHTML = ""; 
+    }
+
+}

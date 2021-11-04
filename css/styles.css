@@ -55,10 +55,31 @@ h1:hover {
     background-color: black;
 }
 
+#streak{
+    margin-top: 70px;
+}
+
 #twitter-icon:hover{
     fill: #237EE1;
     cursor: crosshair;
 }
+
+/*BottleSpin*/
+#bottle-box{
+    margin-top: 60px;
+}
+
+#bottle-headline{
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: bold; 
+}
+
+#bottle-spin{
+    margin-top: 25px;
+}
+
+
 /*Calculator*/
 #calculator-box{
    border-radius: 30px;

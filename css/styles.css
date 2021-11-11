@@ -12,6 +12,13 @@
     background-size: 400% 400%;
     position: relative;
     animation: gradientone 10s ease-in-out infinite;
+
+    
+    overflow-x: hidden !important;
+
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    
 }
 
 h1 {
